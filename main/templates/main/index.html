@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-</head>
-<body>
-    <p class="">{{content}}</p>
-    {% if is_authenticated %}
-    <p class="">{{list.0}}</p>
-    <p class="">{{dict.first}}</p>
-    {% endif %}
-</body>
-</html>                     
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+{% endblock  %}
+
+{% block content %}
+    <h1 class="mt-5 pt-5"style="color: skyblue;"><strong>{{ content}}</strong></h1>
+{% endblock  %}
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy;  Python WebSite 2025</p>
+        </div>
+    </footer>
+{% endblock  %}
