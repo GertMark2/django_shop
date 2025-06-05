@@ -1,0 +1,58 @@
+[
+    {
+        "model": "goods.categories",
+        "pk": 4,
+        "fields": {
+            "name": "Все товары",
+            "slug": "all"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 5,
+        "fields": {
+            "name": "Категория 1",
+            "slug": "kategoriya-1"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 6,
+        "fields": {
+            "name": "Категория 2",
+            "slug": "kategoriya-2"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 7,
+        "fields": {
+            "name": "Категория 3",
+            "slug": "kategoriya-3"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 8,
+        "fields": {
+            "name": "Категория 4",
+            "slug": "kategoriya-4"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 9,
+        "fields": {
+            "name": "Категория 5",
+            "slug": "kategoriya-5"
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 10,
+        "fields": {
+            "name": "Категория 6",
+            "slug": "kategoriya-6"
+        }
+    }
+]
