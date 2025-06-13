@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block css %}
@@ -6,15 +6,16 @@
 {% endblock  %}
 
 {% block content %}
-<div class="mt-5 pt-5 bg-white custom-shadow rounded">
-    <h2 class="m-2"style="color: skyblue;"><strong>{{ content}}</strong></h2>
-    <p class="m-2" style="color: skyblue;">{{text_on_page}}</p>
+<div class="mt-5 pt-5 gradient-box text-white rounded shadow-lg">
+    <h2 class="m-2"><strong>{{ content }}</strong></h2>
+    <p class="m-2">{{ text_on_page }}</p>
 </div>
+
 {% endblock  %}
 {% block footer %}
-<footer class="py-4 bg-dark">
+<footer class="py-4 bg-primary">
     <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy;  Python WebSite 2025</p>
+            <p class="m-0 text-center text-white">Copyright &copy;  Django_shop 2025</p>
         </div>
     </footer>
 {% endblock  %}
