@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+    <style>
+        .delivery-section {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 60px;
+            border-radius: 2rem;
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .delivery-section h2,
+        .delivery-section h4 {
+            color: #f4d160;
+        }
+
+        .delivery-info p,
+        .payment-info p {
+            font-size: 1.2rem;
+        }
+
+        .pay-btn {
+            background: linear-gradient(45deg, #f4d160, #111);
+            border: none;
+            color: black;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .pay-btn:hover {
+            transform: scale(1.05);
+            color: white;
+        }
+    </style>
+{% endblock %}
+
+{% block modal_cart %}
+    {% include "includes/cart_button.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="delivery-section mt-5 pt-5 text-white">
+    <h2 class="mb-4"><strong>{{ content }}</strong></h2>
+
+    <div class="delivery-info mb-5">
+        <h4>🚚 Доставка</h4>
+        <p>Мы осуществляем доставку по всему Казахстану и странам СНГ.</p>
+        <p>Срок доставки — от 2 до 5 рабочих дней.</p>
+        <p>Курьерская доставка в г. Астана и Алматы — в течение 24 часов.</p>
+        <p>Бесплатная доставка при заказе от 30 000 ₸.</p>
+    </div>
+
+    <div class="payment-info mb-5">
+        <h4>💳 Оплата</h4>
+        <p>Вы можете оплатить заказ онлайн с помощью:</p>
+        <ul>
+            <li>Карт Visa / MasterCard</li>
+            <li>Apple Pay / Google Pay</li>
+            <li>Kaspi QR / Kaspi RED</li>
+        </ul>
+        <p>Также доступна оплата при получении.</p>
+    </div>
+
+    <!-- Имитация оплаты -->
+    <div class="text-center">
+        <h4 class="mb-3">💼 Имитация оплаты</h4>
+        <p>Нажмите кнопку ниже, чтобы «оплатить» заказ (для теста)</p>
+        <form method="post" action="#">
+            {% csrf_token %}
+            <button type="submit" class="pay-btn">Оплатить 24 900 ₸</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="animated-footer py-4">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Noir Time 2025</p>
+    </div>
+</footer>
+{% endblock %}

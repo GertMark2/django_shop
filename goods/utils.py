@@ -17,7 +17,7 @@ def q_search(query):
         headline=SearchHeadline(
             "name",
             query,
-            start_sel='<span style="background-color: yellow;">',
+            start_sel='<span style="background-color: rgba(212, 175, 55, 0.25); color: white; padding: 1px 3px; border-radius: 3px;">',
             stop_sel="</span>",
         )
     )
@@ -25,7 +25,7 @@ def q_search(query):
         bodyline=SearchHeadline(
             "description",
             query,
-            start_sel='<span style="background-color: yellow;">',
+            start_sel='<span style="background-color: rgba(212, 175, 55, 0.25); color: white; padding: 1px 3px; border-radius: 3px;">',
             stop_sel="</span>",
         )
     )

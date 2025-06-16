@@ -10,16 +10,47 @@
 {% endblock %}
 
 {% block content %}
-<div class="mt-5 pt-5 gradient-box text-white rounded shadow-lg">
+<!-- Блок "О нас" -->
+<div class="about-section mt-5 pt-5 text-white rounded-4 shadow-lg">
     <h2 class="m-2"><strong>{{ content }}</strong></h2>
     <p class="m-2">{{ text_on_page }}</p>
-</div>
+    <h3 class="m-2">Создай своё идеальное время с Noir Time!</h3>
 
-{% endblock  %}
-{% block footer %}
-<footer class="py-4 bg-primary">
-    <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy;  Django_shop 2025</p>
+    <p class="m-4 fs-5">
+        В мире, где каждая секунда имеет значение, Noir Time предлагает не просто часы — мы дарим ощущение контроля над временем.
+        Наши аксессуары — это нечто большее, чем стиль. Это проявление характера, целеустремлённости и утончённости.
+    </p>
+    <p class="m-4 fs-5">
+        Мы создаём дизайн, который вдохновляет, и механизмы, которые не подводят. Noir Time — когда ты выбираешь совершенство.
+    </p>
+
+    <!-- Блок с картинками -->
+    <div class="row mt-5">
+        <div class="col-md-3 mb-4" data-aos="fade-up">
+            <img src="{% static 'deps/images/about1.jpg' %}" class="img-fluid rounded-4 shadow" alt="Часы вблизи">
+            <p class="text-white">«Совершенство механики в каждой детали»</p>
         </div>
-    </footer>
-{% endblock  %}
+        <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <img src="{% static 'deps/images/about2.jpg' %}" class="img-fluid rounded-4 shadow" alt="Мужская рука с часами">
+            <p class="text-white">«Стиль, который говорит без слов»</p>
+        </div>
+        <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <img src="{% static 'deps/images/about3.jpg' %}" class="img-fluid rounded-4 shadow" alt="Часы на фоне механизма">
+            <p class="text-white">«Когда мощь инженерии становится частью образа»</p>
+        </div>
+        <div class="col-md-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <img src="{% static 'deps/images/about4.jpg' %}" class="img-fluid rounded-4 shadow" alt="Стильный образ с аксессуаром">
+            <p class="text-white">«Время для тех, кто выбирает характер»</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="animated-footer py-4">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Noir Time 2025</p>
+    </div>
+</footer>
+{% endblock %}
+

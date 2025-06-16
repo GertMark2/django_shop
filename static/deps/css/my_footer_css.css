@@ -11,3 +11,24 @@ footer {
   background-size: cover;
   color: white;
 }
+
+.animated-footer {
+  background: linear-gradient(270deg, #000000, #3d2b1f, #b8860b, #000000);
+  background-size: 600% 600%;
+  animation: goldPulse 10s ease infinite;
+  color: white;
+}
+
+@keyframes goldPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}

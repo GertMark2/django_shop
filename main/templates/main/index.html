@@ -2,20 +2,99 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
-{% endblock  %}
+<link rel="stylesheet" href="{% static 'deps/css/my_footer_css.css' %}">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+<style>
+    .feature-block {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 4rem 0;
+        padding: 1rem;
+    }
+
+    .feature-block.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .feature-image {
+        flex: 1 1 50%;
+        padding: 1rem;
+    }
+
+    .feature-image img {
+        width: 100%;
+        border-radius: 1.2rem;
+        box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+    .feature-image img:hover {
+        transform: scale(1.03);
+    }
+
+    .feature-text {
+        flex: 1 1 50%;
+        padding: 1rem;
+        color: white;
+    }
+
+    .feature-text h4 {
+        color: #f4d160;
+        font-weight: bold;
+    }
+
+    .feature-text p {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+
+    .main-title {
+        color: skyblue;
+        padding-top: 100px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+</style>
+{% endblock %}
 
 {% block modal_cart %}
 {% include "includes/cart_button.html" %}
 {% endblock %}
 
 {% block content %}
-    <h1 class="mt-5 pt-5"style="color: skyblue;"><strong>{{ content}}</strong></h1>
-{% endblock  %}
-{% block footer %}
-    <footer class="py-4 bg-primary">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Django_shop 2025</p>
+<div class="container">
+    <h1 class="main-title"><strong>{{ content }}</strong></h1>
+
+    {% for item in features %}
+    <div class="feature-block {% if forloop.counter|divisibleby:2 %}reverse{% endif %}" data-aos="{% if forloop.counter|divisibleby:2 %}fade-left{% else %}fade-right{% endif %}">
+        <div class="feature-image">
+            <img src="{% static item.image %}" alt="Feature {{ forloop.counter }}">
         </div>
-    </footer>
-{% endblock  %}
+        <div class="feature-text">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block footer %}
+<footer class="py-4 bg-black">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Noir Time 2025</p>
+    </div>
+</footer>
+{% endblock %}
+
+{% block js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: true
+    });
+</script>
+{% endblock %}
+

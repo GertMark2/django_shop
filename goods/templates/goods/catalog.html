@@ -10,22 +10,22 @@
                     <div class="row">
                         <!-- Форма фильтров -->
                         <div class="dropdown mb-2">
-                            <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
+                            <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown" style="background-color: black; color: #d4af37; border: 1px solid #d4af37;"
                                 aria-expanded="false">
                                 Фильтры
                             </button>
                     
-                            <form action="{% if request.GET.g %} {% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
+                            <form action="{% if request.GET.g %} {% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu bg-black text-white border border-secondary shadow-lg rounded-3 px-3 py-3" data-bs-theme="dark">
                                 <div class="form-check text-white mx-3">
                                     <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == "on" %}checked{% endif %}>
                                     {% if request.GET.g %}
                                         <input type="hidden" name="q" value="{{request.GET.q}}"> 
                                     {% endif %}
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault" style="color: #d4af37;">
                                         Товары по акции
                                     </label>
                                 </div>
-                                <p class="text-white mx-3 mt-3">Сортировать:</p>
+                                <p class="text-white mx-3 mt-3" >Сортировать:</p>
                                 <div class="form-check text-white mx-3">
                                     <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default" 
                                     {% if not request.GET.order_by or request.GET.order_by == 'default'   %}checked{% endif %}>
@@ -47,7 +47,7 @@
                                         От дорогих к дешевым
                                     </label>
                                 </div>
-                                <button type="submit" class="btn btn-primary mx-3 mt-3">Применить</button>
+                                <button type="submit" class="btn btn-primary mx-3 mt-3" style="background-color: black; color: #d4af37; border: 1px solid #d4af37; font-weight: bold;" >Применить</button>
                             </form>
                         </div>
 
@@ -66,15 +66,15 @@
                         {% for product  in goods %}
                         <!-- Карта товара -->
                         <div class="col-lg-4 col-md-6 p-4">
-                            <div class="card border-primary rounded custom-shadow">
+                            <div class="card bg-black text-white border border-secondary rounded custom-shadow">
                                 {% if product.image %}
                                     <img src="{{product.image.url}}" class="card-img-top" alt="{{ product.name }}">
                                 {% else %}
                                     <img src="{% static "deps/images/Not found image.png" %}" class="card-img-top" alt="...">
                                 {% endif %}
-                                <div class="card-body">
-                                    <a href="{% url "catalog:product" product.slug %}">
-                                        <p class="card-title">
+                                <div class="card-body ">
+                                    <a href="{% url "catalog:product" product.slug %}" style="color: rgb(255, 255, 255);">
+                                        <p class="card-title" style="color:rgb(206, 166, 35); font-weight: bold;"  >
                                             {% autoescape off %}
                                                 {% if product.headline %}
                                                 {{product.headline}}
@@ -94,17 +94,17 @@
                                     {% endautoescape %}
                                     </p>
                                     <p class="product_id">id: {{product.display_id}}</p>
-                                    <div class="d-flex justify-content-between">
+                                    <div class="d-flex justify-content-between ">
 
                                         {% if product.discount %}
-                                            <p><s>{{product.price}}</s> $</p>
-                                            <p><strong>{{product.sell_price}} $</strong></p>
-                                            <span class="badge bg-warning text-dark">Скидка {{product.discount}} %</span> 
+                                            <p><s style="color: #888;" >{{product.price}}</s> тг</p>
+                                            <p><strong style="color: #d4af37;">{{product.sell_price}} тг</strong></p>
+                                            <span class="badge bg-warning text-dark" >Скидка {{product.discount}} %</span> 
                                         {% else %}
-                                            <p><strong>{{product.price}}$</strong></p> 
+                                            <p><strong  style="color: #d4af37;">{{product.price}}тг</strong></p> 
                                         {% endif %}
 
-                                        <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
+                                        <a href="{% url "cart:cart_add" %}" class="btn add-to-cart" 
                                         data-product-id="{{product.id}}">
                                             {% csrf_token %}
                                             <img class="mx-1" src="{% static "deps/icons/cart-plus.svg" %}" alt="Catalog Icon"
@@ -119,8 +119,8 @@
                     </div>
                     <!-- Пагинация -->
                     {% if goods %}
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center my-4">
+                        <nav aria-label="Page navigation example" >
+                            <ul class="pagination justify-content-center my-4 " >
                                 <div class="custom-shadow d-flex">
                                     <li class="page-item {% if not goods.has_previous %}disabled{% endif %} ">
                                     <a class="page-link" href = "{% if goods.has_previous %}?{% change_params page=goods.previous_page_number %}{% else %}#{% endif %}">Назад</a>
@@ -135,7 +135,7 @@
                                     
 
                                     <li class="page-item {% if not goods.has_next %}disabled{% endif %} ">
-                                    <a class="page-link" href = "{% if goods.has_next %}?{% change_params page=goods.next_page_number %}{% else %}#{% endif %}">Следующая</a>
+                                    <a class="page-link " href = "{% if goods.has_next %}?{% change_params page=goods.next_page_number %}{% else %}#{% endif %}">Следующая</a>
                                     </li>
                                 </div>
                             </ul>
@@ -145,9 +145,9 @@
 {% endblock  %}
 
 {% block footer %}
-    <footer class="py-4 bg-primary">
+    <footer class="py-4 bg-black">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Django_shop 2025</p>
+            <p class="m-0 text-center text-white">Copyright &copy; <span style="color: #d4af37;">Noir Time</span> 2025</p>
         </div>
     </footer>
 {% endblock footer %}
